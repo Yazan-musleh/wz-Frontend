@@ -1,0 +1,43 @@
+<div class="modal-header info">
+    <h4 class="modal-title">
+        Create Group
+    </h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<hr />
+
+<div class="modal-body">
+    <form [formGroup]="createGroupForm">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Group name</label>
+                    <input placeholder="group name" id="groupName" class="form-control" type="text" formControlName="groupName" />
+
+                </div>
+            </div>
+            <div class="d-flex justify-content-end gap-2 mt-3">
+                <div class="text-end mb-3 h-100">
+                    <input type="file" id="excelUploadCreate" (change)="onCreateFileSelected($event)" accept=".xls, .xlsx" hidden>
+                    <label for="excelUploadCreate" class="btn btn-success">
+                        <i class="bi bi-file-earmark-excel"></i> Upload Excel Sheet
+                        </label>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="submit-btns btn-group-end">
+            <button type="submit" (click)="onSubmit()" class="btn search-btn">
+        Create
+      </button>
+
+            <button type="button" class="btn search-btn" (click)="activeModal.dismiss()">
+        Cancel
+      </button>
+        </div>
+    </form>
+</div>

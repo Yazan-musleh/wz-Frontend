@@ -1,0 +1,56 @@
+<div *ngIf="webhookData">
+    <h3>New Webhook Event Received:</h3>
+    <pre>{{ webhookData  | json}} </pre>
+</div>
+
+<!-- 
+
+<div *ngIf="qrCode && !authenticated">
+    <h3>Scan the QR Code</h3>
+    <img [src]="'data:image/png;base64,' + qrCode" alt="QR Code">
+</div>
+ -->
+
+
+<hr>
+
+<div *ngIf="!isLoggedIn" class="login-container">
+    <div class="login-box">
+        <h2>WhatsApp Login</h2>
+        <div class="status">{{instanceStatus}}</div>
+        <div *ngIf="qrCode" class="qr-container">
+            <img [src]="qrCodeBase64" alt="Scan QR Code" />
+        </div>
+
+        <div *ngIf="authFailure">
+            <p style="color: red;">Authentication failed. Please try again.</p>
+            <button (click)="ngOnInit()">Retry</button>
+        </div>
+
+        <div *ngIf="authenticated">
+            <p>✅ Authentication successful! Redirecting...</p>
+        </div>
+
+        <div *ngIf="loading">
+            <p>Loading WhatsApp Web...</p>
+        </div>
+
+        <button (click)="retry()">Retry</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div *ngIf="isLoggedIn" class="logout-container">
+    <h2>Logout</h2>
+    <div class="user-info">
+        <p><strong>Status:</strong> {{ instanceStatus }}</p>
+        <p><strong>Username:</strong> {{ username }}</p>
+        <p><strong>Phone Number:</strong> {{ phoneNumber }}</p>
+    </div>
+    <button (click)="logout()" class="logout-btn">Logout</button>
+</div>

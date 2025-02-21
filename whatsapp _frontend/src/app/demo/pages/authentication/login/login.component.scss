@@ -1,0 +1,114 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+mat-card {
+    width: 350px;
+    padding: 20px;
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+// 6. Add Login Route in app-routing.module.ts
+// { path: 'login', component: LoginComponent },
+// ```
+// // 7. Protect Routes (auth.guard.ts)
+// ```
+// import { Injectable } from '@angular/core';
+// import { CanActivate, Router } from '@angular/router';
+// @Injectable({ providedIn: 'root' })
+// export class AuthGuard implements CanActivate {
+//   constructor(private router: Router) {}
+//   canActivate(): boolean {
+//     if (localStorage.getItem('token')) {
+//       return true;
+//     } else {
+//       this.router.navigate(['/login']);
+//       return false;
+//     }
+//   }
+// }
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+}
+
+.login-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.qr-container img {
+    width: 250px;
+    height: 250px;
+}
+
+.status {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.qr {
+    color: #ff9800;
+}
+
+.authenticated {
+    color: green;
+}
+
+.ready {
+    color: blue;
+}
+
+.error {
+    color: red;
+}
+
+button {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-container {
+    text-align: center;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    margin: 15px 0;
+}
+
+.logout-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #c9302c;
+}
