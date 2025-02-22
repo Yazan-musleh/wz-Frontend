@@ -22,7 +22,7 @@ export class GroupService {
     const formData = new FormData();
     formData.append('file', file, file.name);
 
-    return this.http.post(this.apiUrl +"/Create?groupName="+groupName, formData).pipe(
+    return this.http.post(this.apiUrl +"/Create?groupName="+groupName, formData, {responseType: 'blob'}).pipe(
       catchError(this.handleError) // Handle errors gracefully
     );
   }

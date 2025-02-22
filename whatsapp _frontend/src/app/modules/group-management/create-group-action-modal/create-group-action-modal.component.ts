@@ -62,7 +62,7 @@ export class CreateGroupActionModalComponent implements OnInit{
     }
 
     if (this.selectedFile == null || groupName == null) {
-      alert("Please select a group and provide a valid excel file");
+      alert("Please provide group name and provide a valid excel file");
       return;
     }
 
@@ -73,6 +73,16 @@ export class CreateGroupActionModalComponent implements OnInit{
         (response) => {
           console.log('Upload successful', response);
           alert('File uploaded successfully!');
+          
+          const blob = new Blob([response], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'WhatsAppUserData.xlsx';
+          document.body.appendChild(a);
+          a.click();
+          window.URL.revokeObjectURL(url);
         },
         (error) => {
           console.error('Upload failed', error);
