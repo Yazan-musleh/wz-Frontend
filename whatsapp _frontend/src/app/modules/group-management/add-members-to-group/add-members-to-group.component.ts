@@ -55,6 +55,11 @@ export class AddMembersToGroupComponent implements OnInit {
   onSubmit() {
     console.log("11" + this.selectedId);
 
+    if (this.selectedFile == null || this.selectedId == null) {
+      alert("Please select a group and provide a valid excel file");
+      return;
+    }
+
       this.groupService.addMembersToGroup(this.selectedId, this.selectedFile)
       .subscribe(
         (response) => {
@@ -80,8 +85,6 @@ export class AddMembersToGroupComponent implements OnInit {
  
 
     onFileSelected(event: any) {
-      console.log("1" + this.selectedFile);
-
     const file = event.target.files[0];
     if (file) {
       const fileType = file.name.split('.').pop()?.toLowerCase();
@@ -102,13 +105,6 @@ export class AddMembersToGroupComponent implements OnInit {
     });
   }
 
-  uploadPhoneNumbersFromExcel(){
-
-  }
-
-  addMembers(){
-    
-  }
 
   // onFileSelected(event: any) {
   //   const file = event.target.files[0];

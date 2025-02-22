@@ -54,10 +54,16 @@ export class CreateGroupActionModalComponent implements OnInit{
   }
 
   onSubmit() {
+
     var groupName: string;
     if (this.createGroupForm.valid) {
       groupName = this.createGroupForm.get('groupName')?.value; // ✅ Fix here
       console.log('Group Created:', groupName);
+    }
+
+    if (this.selectedFile == null || groupName == null) {
+      alert("Please select a group and provide a valid excel file");
+      return;
     }
 
     console.log(this.selectedFile);
