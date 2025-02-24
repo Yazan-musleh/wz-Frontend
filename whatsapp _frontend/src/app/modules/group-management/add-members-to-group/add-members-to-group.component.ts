@@ -44,6 +44,13 @@ export class AddMembersToGroupComponent implements OnInit {
     this.groupService.getGroups().subscribe(
       (data) => {
         this.groups = data;
+        if (this.groups.length == 0) {
+          this.groups = [
+            {id: 'syncing', groupName: 'syncing'}
+          ];
+          
+          this.fetchGroups();
+        }
       },
       (error) => {
         console.error('Error fetching groups', error);
