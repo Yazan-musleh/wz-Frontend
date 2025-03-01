@@ -74,6 +74,14 @@ export const NavigationItems: NavigationItem[] = [
         classes: 'nav-item',
         url: '/add_members',
         icon: 'ti ti-typography'
+      },
+      {
+        id: 'typography',
+        title: 'Get members',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/get_members',
+        icon: 'ti ti-typography'
       }
     ]
   },
@@ -85,7 +93,7 @@ export const NavigationItems: NavigationItem[] = [
     children: [
       {
         id: 'sample-page',
-        title: 'Send Messages',
+        title: 'Broadcast messages',
         type: 'item',
         url: '/sample-page',
         classes: 'nav-item',
@@ -100,7 +108,7 @@ export const NavigationItems: NavigationItem[] = [
     children: [
       {
         id: 'document',
-        title: 'Document',
+        title: 'Documentation',
         type: 'item',
         classes: 'nav-item',
         url: '/sample-page',

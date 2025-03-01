@@ -29,6 +29,7 @@ export class GroupService {
 
   private handleError(error: HttpErrorResponse) {
     console.error('File upload error:', error);
+    alert(error.message);
     return throwError(() => new Error('File upload failed. Please try again.'));
   }
 
@@ -39,5 +40,12 @@ export class GroupService {
 
     return this.http.post(this.apiUrl + "/add?groupId=" + groupId, formData, {
       responseType: 'blob'});
+  }
+
+  getGroupParticipant(groupId: string): Observable<any> {
+
+    return this.http.get(this.apiUrl + "?groupId=" + groupId, {
+      responseType: 'blob'
+    });
   }
 }

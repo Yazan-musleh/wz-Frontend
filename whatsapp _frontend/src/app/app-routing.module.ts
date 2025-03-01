@@ -34,6 +34,10 @@ const routes: Routes = [
         loadComponent: () => import('./modules/group-management/add-members-to-group/add-members-to-group.component').then((m) => m.AddMembersToGroupComponent)
       },
       {
+        path: 'get_members',
+        loadComponent: () => import('./modules/group-management/get-group-members/get-group-members.component').then((m) => m.GetGroupMembersComponent)
+      },
+      {
         path: 'send_messages',
         loadComponent: () => import('./modules/messaging/send-messages/send-messages.component').then((m) => m.SendMessagesComponent)
       },

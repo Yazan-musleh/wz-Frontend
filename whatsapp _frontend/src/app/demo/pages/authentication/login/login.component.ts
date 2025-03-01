@@ -59,7 +59,6 @@ export default class LoginComponent implements OnInit{
         case "ready":
           this.isLoggedIn = true;
           this.fetchUserDetails();
-          console.log("instance is ready what do you want??????");
       }
     })
   }

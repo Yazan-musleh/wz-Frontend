@@ -1,20 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-
-import { CardComponent } from '../../../theme/shared/components/card/card.component';
 import { CommonModule } from '@angular/common';
-import { GroupService } from 'src/app/services/group.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { HttpClient } from '@microsoft/signalr';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CreateGroupActionModalComponent } from '../create-group-action-modal/create-group-action-modal.component';
+import { GroupService } from 'src/app/services/group.service';
 
 @Component({
-  selector: 'app-add-members-to-group',
-  imports: [CardComponent, CommonModule, HttpClientModule],
-  templateUrl: './add-members-to-group.component.html',
-  styleUrl: './add-members-to-group.component.scss',
+  selector: 'app-get-group-members',
+  imports: [CommonModule, HttpClientModule],
+  templateUrl: './get-group-members.component.html',
+  styleUrl: './get-group-members.component.scss',
   providers: [GroupService]
 })
-export class AddMembersToGroupComponent implements OnInit {
+export class GetGroupMembersComponent {
 
   selectedGroup: string;
   selectedFile: File | null = null;
@@ -58,14 +56,8 @@ export class AddMembersToGroupComponent implements OnInit {
     );
   }
 
-
-  onSubmit() {
-    if (this.selectedFile == null || this.selectedId == null) {
-      alert("Please select a group and provide a valid excel file");
-      return;
-    }
-
-      this.groupService.addMembersToGroup(this.selectedId, this.selectedFile)
+  onSubmit(){
+    this.groupService.getGroupParticipant(this.selectedId)
       .subscribe(
         (response) => {
           console.log('Upload successful', response);
@@ -86,36 +78,4 @@ export class AddMembersToGroupComponent implements OnInit {
         }
       );
   }
- 
-
-    onFileSelected(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const fileType = file.name.split('.').pop()?.toLowerCase();
-      if (fileType === 'xls' || fileType === 'xlsx') {
-        this.selectedFile = file;
-      } else {
-        alert('Only Excel files (.xls, .xlsx) are allowed.');
-        event.target.value = ''; // Reset file input
-      }
-    }
-  }
-
-  onCreateGroup(){
-    const modalRef = this.modalService.open(CreateGroupActionModalComponent, {
-      size: 'xl',
-      backdrop: 'static',
-      centered: true,
-    });
-  }
-
-
-  // onFileSelected(event: any) {
-  //   const file = event.target.files[0];
-  //   if (file) {
-  //     console.log("Selected file:", file.name);
-  //     // Handle file upload logic here
-  //   }
-  // }
-
 }
