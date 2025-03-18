@@ -34,7 +34,6 @@ export class GroupService {
   }
 
   addMembersToGroup(groupId: string, file: File):Observable<any> {
-    
     const formData = new FormData();
     formData.append('file', file, file.name);
 
@@ -43,7 +42,6 @@ export class GroupService {
   }
 
   getGroupParticipant(groupId: string): Observable<any> {
-
     return this.http.get(this.apiUrl + "?groupId=" + groupId, {
       responseType: 'blob'
     });

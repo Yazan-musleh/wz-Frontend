@@ -14,6 +14,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
 import { NgbDropdownModule, NgbNavModule, NgbModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { GroupService } from 'src/app/services/group.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { MessagesService } from 'src/app/services/messages.service';
 
 
 
@@ -33,7 +34,8 @@ import { AuthService } from 'src/app/services/auth.service';
   ],
   providers:[
     GroupService,
-    AuthService
+    AuthService,
+    MessagesService
   ],
   exports: [
     CommonModule,

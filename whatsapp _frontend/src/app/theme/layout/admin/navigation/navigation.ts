@@ -76,7 +76,7 @@ export const NavigationItems: NavigationItem[] = [
         icon: 'ti ti-typography'
       },
       {
-        id: 'typography',
+        id: 'get_members',
         title: 'Get members',
         type: 'item',
         classes: 'nav-item',
@@ -92,10 +92,10 @@ export const NavigationItems: NavigationItem[] = [
     icon: 'icon-navigation',
     children: [
       {
-        id: 'sample-page',
+        id: 'broadcast-message',
         title: 'Broadcast messages',
         type: 'item',
-        url: '/sample-page',
+        url: '/send_messages',
         classes: 'nav-item',
         icon: 'ti ti-brand-chrome'
       }

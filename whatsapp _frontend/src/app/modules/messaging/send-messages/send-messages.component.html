@@ -1,1 +1,12 @@
-<p>send-messages works!</p>
+<div class="message-container">
+    <!-- Upload File Button -->
+    <label class="upload-btn" for="fileInput" title="Upload an Excel file">
+    📂 Upload File
+  </label>
+    <input type="file" id="fileInput" (change)="onFileSelected($event)" accept=".xls, .xlsx" hidden />
+
+    <!-- Message Input -->
+    <textarea [(ngModel)]="messageContent" placeholder="Type your message..."></textarea>
+    <!-- Send Button -->
+    <button class="send-btn" (click)="sendMessage()">Send</button>
+</div>
